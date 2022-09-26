@@ -19,6 +19,10 @@ class App {
 
     this.server = new http.Server(app);
     this.io = new socketIO.Server(this.server);
+    
+    this.io.on('connection', (socket: socketIO.Socket) => {
+      console.log("a user connected:", socket.id);
+    });
   }
 
   public Start(): void {
