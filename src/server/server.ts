@@ -21,7 +21,11 @@ class App {
     this.io = new socketIO.Server(this.server);
     
     this.io.on('connection', (socket: socketIO.Socket) => {
-      console.log("a user connected:", socket.id);
+      console.log('a user connected:', socket.id);
+
+      socket.on('disconnect', function() {
+        console.log('socket disconnect:', socket.id);
+      });
     });
   }
 
