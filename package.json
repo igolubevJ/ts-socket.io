@@ -7,13 +7,15 @@
     "build": "tsc src/server/server.ts --outDir dist/server/ --esModuleInterop true",
     "start": "node dist/server/server.js",
     "server:watch": "tsc -p src/server/ -w",
-    "server:dev": "nodemon dist/server/server.js"
+    "server:nodemon": "nodemon dist/server/server.js",
+    "server:dev": "concurrently -k \"tsc -p ./src/server -w\" \"nodemon ./dist/server/server.js\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^18.7.21",
+    "concurrently": "^7.4.0",
     "nodemon": "^2.0.20",
     "typescript": "^4.8.3"
   },
