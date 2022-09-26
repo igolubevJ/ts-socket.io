@@ -1,0 +1,20 @@
+{
+  "name": "ts-socket.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc src/server/server.ts --outDir dist/server/ --esModuleInterop true",
+    "start": "node dist/server/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.7.21",
+    "typescript": "^4.8.3"
+  },
+  "dependencies": {
+    "socket.io": "^4.5.2"
+  }
+}
