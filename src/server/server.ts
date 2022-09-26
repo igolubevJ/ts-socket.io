@@ -1,13 +1,15 @@
 import express from 'express';
 import path from 'path';
 import http from 'http';
-import SocketIO from 'socket.io';
+import socketIO from 'socket.io';
 
 const port: number = 3000;
 
 class App {
   private server: http.Server;
   private port: number;
+
+  private io: socketIO.Server;
 
   constructor(port: number) {
     this.port = port;
@@ -16,7 +18,7 @@ class App {
     app.use(express.static(path.join(__dirname, '..', 'client')));
 
     this.server = new http.Server(app);
-    const io = new SocketIO.Server(this.server);
+    this.io = new socketIO.Server(this.server);
   }
 
   public Start(): void {
