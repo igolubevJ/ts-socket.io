@@ -31,6 +31,10 @@ class App {
         console.log('socket disconnect:', socket.id);
       });
     });
+
+    setInterval(() => {
+      this.io.emit('random', Math.floor(Math.random() * 10));
+    }, 1000);
   }
 
   public Start(): void {
